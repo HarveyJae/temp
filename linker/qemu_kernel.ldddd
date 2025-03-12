@@ -1,0 +1,49 @@
+/* QEMU virt 机器内存布局 */
+MEMORY {
+    RAM (rwx) : ORIGIN = 0x80200000, LENGTH = 126M
+}
+
+ENTRY(_start)
+
+SECTIONS {
+    /* 代码段 */
+    .text : {
+        *(.text.boot)  /* 启动代码必须放在最前面 */
+        *(.text)
+        *(.text.*)
+    } > RAM
+
+    /* 只读数据段 */
+    .rodata : {
+        . = ALIGN(8);
+        *(.rodata)
+        *(.rodata.*)
+    } > RAM
+
+    /* 已初始化数据段 */
+    .data : {
+        . = ALIGN(8);
+        *(.data)
+        *(.data.*)
+    } > RAM
+
+    /* BSS段（包含内核启动栈） */
+    .bss : {
+        . = ALIGN(16);       /* 整个BSS段16字节对齐 */
+        __bss_start = .;     /* BSS起始符号（供汇编代码使用） */
+
+        *(.bss)
+        *(.bss.*)
+        *(COMMON)
+
+        /* 预留内核启动栈空间 */
+        . = ALIGN(16);       /* 栈空间16字节对齐 */
+        k_boot_stack = .;    /* 栈底符号 */
+        . += 0x1000;
+        __bss_end = .;       /* BSS结束符号 */
+    } > RAM
+
+    /* 其他符号（可选） */
+    __global_pointer = . + 0x800;  /* RISC-V优化用 */
+    _end = .;
+}

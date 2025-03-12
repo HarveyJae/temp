@@ -1,0 +1,9 @@
+/home/harveyjae/temp/build/CMakeFiles/start_up.dir
+/home/harveyjae/temp/build/CMakeFiles/kernel.elf.dir
+/home/harveyjae/temp/build/CMakeFiles/clean-all.dir
+/home/harveyjae/temp/build/CMakeFiles/qemu.dir
+/home/harveyjae/temp/build/CMakeFiles/debug.dir
+/home/harveyjae/temp/build/CMakeFiles/gdb.dir
+/home/harveyjae/temp/build/CMakeFiles/disassembly.dir
+/home/harveyjae/temp/build/CMakeFiles/edit_cache.dir
+/home/harveyjae/temp/build/CMakeFiles/rebuild_cache.dir

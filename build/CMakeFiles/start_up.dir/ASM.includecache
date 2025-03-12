@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/harveyjae/temp/platform.h
+
+/home/harveyjae/temp/start.S
+platform.h
+/home/harveyjae/temp/platform.h
+

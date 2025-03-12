@@ -1,0 +1,1 @@
+/usr/bin/riscv64-unknown-elf-gcc -T /home/harveyjae/temp/linker/qemu_kernel.ld -nostdlib CMakeFiles/kernel.elf.dir/init.c.obj CMakeFiles/start_up.dir/start.S.obj -o bin/kernel.elf 
